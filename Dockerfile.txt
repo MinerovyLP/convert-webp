@@ -4,24 +4,6 @@ WORKDIR /usr/src/app
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    wget \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    libxml2-dev \
-    libtool \
-    libltdl-dev \
-    libz-dev \
-    libssl-dev \
-    libbz2-dev \
-    liblcms2-dev \
-    libgif-dev \
-    librsvg2-dev \
-    ghostscript \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN wget https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-7.1.1-15.tar.xz && \
     tar -xf ImageMagick-7.1.1-15.tar.xz && \
     cd ImageMagick-7.1.1-15 && \
