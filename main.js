@@ -21,7 +21,7 @@ app.get('/convert-webp', async (req, res) => {
         const webpImageBuffer = Buffer.from(response.data);
 
         // Spawn ImageMagick process to convert the image
-        const convert = spawn('magick', ['webp:-', 'png:-']);
+        const convert = spawn('convert', ['webp:-', 'png:-']);
 
         // Write the buffer into ImageMagick's stdin
         convert.stdin.write(webpImageBuffer);
