@@ -2,15 +2,10 @@ FROM node:latest
 
 WORKDIR /usr/src/app
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN wget https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-7.1.1-15.tar.xz && \
-    tar -xf ImageMagick-7.1.1-15.tar.xz && \
-    cd ImageMagick-7.1.1-15 && \
-    ./configure && \
-    make && \
-    make install && \
-    ldconfig
+RUN apt-get update && apt-get install -y \
+    imagemagick libmagickwand-dev --no-install-recommends \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
 
 COPY package*.json ./
 
