@@ -55,7 +55,7 @@ app.listen(PORT, () => {
 
 function startCyclicFunc() {
     setInterval(() => {
-      try { axios.get("https://minerovyaddons.onrender.com"); } catch (e) {}
+      try { axios.get("https://convert-webp.onrender.com"); } catch (e) {}
     }, 600000); // 10 minutes
   }
   startCyclicFunc();
